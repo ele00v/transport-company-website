@@ -1,38 +1,112 @@
-body {
-    margin: 0;
-    padding: 0;
-    align-items: center;
-    margin-top: 0%;
-  }
 
-ul {
-    margin-top: 0%;
-    list-style-type: none;
-    display: flex;
-    overflow: hidden;
-    background-color: #333;
-    align-items: center;
-  }
-  
-  li img{
-    float:left;
-    padding: 18px 25px;
-    text-align: center;
-    display: block;
-    width:min-content;
-    height:min-content;
-    margin-right: 20px;
-  }
+nav ul li:first-child {
+  float: left;
+}
 
-  li a{
-    margin-right: 40px;
-    float: left;
-    display: block;
-    color: white;
-    text-align: center;
-    text-decoration:none;
-    font-size: 18px;
-    padding: 10px;
-  }
-  
- 
+html {
+  background-color: #F8F9F9;
+}
+
+/* Style the header */
+header {
+  background-color: #333;
+  overflow: hidden;
+}
+
+/* Style the header links */
+header a {
+  display: block;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+/* Add a background color to the active link */
+header a.active {
+  background-color: none;
+}
+
+/* Align header links horizontally */
+header ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+}
+
+header li {
+  margin: 0 10px;
+}
+
+/* Style the logo */
+header img {
+  float: left;
+  margin-right: 10px;
+}
+
+/* Style the hero section */
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+  background-color: #f2f2f2;
+  height: 600px;
+}
+
+/* Style the hero text */
+.hero-text {
+  flex: 1;
+  padding: 20px;
+  max-width: 600px;
+  text-align: center;
+}
+
+/* Style the hero images */
+.hero-image-group {
+  flex: 1;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  max-width: 1000px;
+  margin-top: 20px;
+}
+
+.hero-image {
+  position: relative;
+}
+
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.image-info {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 20px;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.hero-image:hover .image-info {
+  opacity: 1;
+}
+
+.image-info h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 24px;
+}
+
+.image-info p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.5;
+}
