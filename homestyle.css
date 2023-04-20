@@ -7,7 +7,47 @@ header {
   margin: 0;
   padding: 0;
 }
+.Home1 {
+  background-color: #f2f2f2;
+  border-left: 10px solid #117A65;
+  padding: 50px;
+  margin: 100px;
+}
+.Home1 h2 {
+  font-size: 32px;
+  margin-top: 0;
+  margin-bottom: 100px;
+  color: #117A65;
+}
+.Home1 h3 {
+  font-size: 18px;
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 1.5;
+  color: #16A085;
+}
 
+.hero-image .image-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  width: 100%;
+  padding: 10px;
+  font-size: 18px;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.hero-image:hover img {
+  transform: scale(1.2);
+}
+
+.hero-image:hover .image-info {
+  opacity: 1;
+}
 /* Style the hero section */
 .hero {
   display: flex;
