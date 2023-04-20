@@ -1,47 +1,19 @@
-
-nav ul li:first-child {
-  float: left;
-}
-
 html {
-  background-color: #F8F9F9;
+  background-color: white;
 }
-
+body {
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  margin-top: 0%;
+}
 /* Style the header */
 header {
-  background-color: #333;
+  background-color:#f2f2f2;
+  text-align: left;
   overflow: hidden;
-}
-
-/* Style the header links */
-header a {
-  display: block;
-  color: white;
-  text-align: center;
-  text-decoration: none;
-  font-size: 20px;
-}
-
-/* Add a background color to the active link */
-header a.active {
-  background-color: none;
-}
-
-/* Align header links horizontally */
-header ul {
-  display: flex;
-  justify-content: center;
-  list-style: none;
-}
-
-header li {
-  margin: 0 10px;
-}
-
-/* Style the logo */
-header img {
-  float: left;
-  margin-right: 10px;
+  margin: 0;
+  padding: 0;
 }
 
 /* Style the hero section */
@@ -51,7 +23,7 @@ header img {
   justify-content: center;
   align-items: center;
   padding: 50px;
-  background-color: #f2f2f2;
+  background-color: white;
   height: 600px;
 }
 
@@ -88,7 +60,7 @@ header img {
   position: absolute;
   top: 0;
   left: 0;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(14, 13, 13, 0.877);
   color: white;
   padding: 20px;
   opacity: 0;
@@ -105,8 +77,78 @@ header img {
   font-size: 24px;
 }
 
-.image-info p {
-  margin: 0;
-  font-size: 16px;
-  line-height: 1.5;
+/*menu bar style */
+ul {
+  margin-top: 0%;
+  list-style-type: none;
+  display: flex;
+  overflow: hidden;
+  background-color: #333;
+  align-items: center;
+}
+li a{
+  margin-right: 40px;
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  text-decoration:none;
+  font-size: 18px;
+  padding: 20px;
+}
+li img{
+  float:left;
+  padding: 18px 25px;
+  text-align: center;
+  display: block;
+  width:min-content;
+  height:min-content;
+  margin-right: 20px;
+}
+li a:hover {
+  background-color: #4d474781;
+}
+
+.accordion {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: center;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+  width: 100%;
+  
+  
+}
+
+.active, .accordion:hover {
+  background-color: #ccc; 
+}
+
+.panel {
+  padding: 0 18px;
+  display: none;
+  background-color: white;
+  overflow: hidden;
+}
+.accordion:after {
+  content: '\02795'; /* Unicode character for "plus" sign (+) */
+  font-size: 13px;
+  color: #777;
+  float: right;
+  margin-left: 5px;
+}
+
+.accordion.active:after {
+  content: "\2796"; /* Unicode character for "minus" sign (-) */
+}
+.about{
+  text-align: center;
+  font-size: 30px;
+  padding: 5px;
+  margin: 5;
 }
