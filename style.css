@@ -15,7 +15,7 @@ html {
     list-style-type: none;
     display: flex;
     overflow: hidden;
-    background-color: #333;
+    background-color: #117A65;
     align-items: center;
   }
   li a{
@@ -36,6 +36,8 @@ html {
     width:min-content;
     height:min-content;
     margin-right: 20px;
+    display: block;
+
   }
   li a:hover {
     background-color: #4d474781;
