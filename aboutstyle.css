@@ -4,6 +4,7 @@
     font-size: 30px;
     padding: 5px;
     margin: 5;
+    color: #117A65;
   }
   
   .accordion {
@@ -21,17 +22,6 @@
     
     
   }
-  
-  .active, .accordion:hover {
-    background-color: #ccc; 
-  }
-  
-  .panel {
-    padding: 0 18px;
-    display: none;
-    background-color: white;
-    overflow: hidden;
-  }
   .accordion:after {
     content: '\02795'; /* Unicode character for "plus" sign (+) */
     font-size: 13px;
@@ -43,4 +33,18 @@
   .accordion.active:after {
     content: "\2796"; /* Unicode character for "minus" sign (-) */
   }
+  .active, .accordion:hover {
+    background-color: #117A65; 
+  }
   
+  .panel {
+    padding: 0 18px;
+    display: none;
+    background-color: white;
+    overflow: hidden;
+
+  }
+  .panel.p{
+    font-family: "Times New Roman";
+  }
+ 
