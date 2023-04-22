@@ -2,23 +2,28 @@
 /* Style the header */
 header {
   background-color:#f2f2f2;
-  text-align: left;
+  text-align: center;
   overflow: hidden;
   margin: 0;
   padding: 0;
 }
 .Home1 {
-  background-color: #f2f2f2;
-  border-left: 10px solid #117A65;
-  padding: 50px;
-  margin: 100px;
+  background-color: #F8F9F9;
+  border-left: 15px solid #117A65;
+  padding: 10px;
+  padding-bottom : 40px;
+  margin: 60px;
+  text-align: center;
+  color: #117A65;
 }
 .Home1 h2 {
   font-size: 32px;
   margin-top: 0;
   margin-bottom: 100px;
   color: #117A65;
+  text-align:left;
 }
+
 .Home1 h3 {
   font-size: 18px;
   margin-top: 0;
@@ -39,6 +44,7 @@ header {
   text-align: center;
   opacity: 0;
   transition: opacity 0.3s;
+
 }
 
 .hero-image:hover img {
@@ -71,14 +77,17 @@ header {
 .hero-image-group {
   flex: 1;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
   max-width: 1000px;
-  margin-top: 20px;
+  margin-top: 200px;
+   margin: 0 auto;
 }
 
 .hero-image {
   position: relative;
+  flex: 1;
+  margin: 0 20px;
 }
 
 .hero-image img {
@@ -86,6 +95,7 @@ header {
   height: 100%;
   object-fit: cover;
   display: block;
+
 }
 
 .image-info {
@@ -107,4 +117,19 @@ header {
   margin-top: 0;
   margin-bottom: 10px;
   font-size: 24px;
+
 }
+
+
+.container {
+  display: flex; 
+  justify-content: center;
+}
+
+.text1, .text2 {
+  margin-right: 0;
+  align-items: center; 
+
+}
+
+
