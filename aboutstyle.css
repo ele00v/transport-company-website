@@ -1,12 +1,14 @@
 /*about page*/
+
 .about{
     text-align: center;
     font-size: 30px;
     padding: 5px;
     margin: 5;
     color: #117A65;
+    font-size: 40px;
   }
-  
+
   .accordion {
     background-color: #eee;
     color: #444;
@@ -16,18 +18,17 @@
     border: none;
     text-align: center;
     outline: none;
-    font-size: 15px;
+    font-size: 20px;
     transition: 0.4s;
-    width: 100%;
-    
-    
+    width: 80%;
+    margin: 0 auto;
   }
+
   .accordion:after {
     content: '\02795'; /* Unicode character for "plus" sign (+) */
     font-size: 13px;
     color: #777;
     float: right;
-    margin-left: 5px;
   }
   
   .accordion.active:after {
@@ -36,15 +37,45 @@
   .active, .accordion:hover {
     background-color: #117A65; 
   }
-  
   .panel {
+    position: relative;
     padding: 0 18px;
-    display: none;
+    display:none;
     background-color: white;
     overflow: hidden;
+    font-size: 20px;
+    width: 80%;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    transition: max-height 0.2s ease-out;
+  }
+  .accordion-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .panel i.fa-phone {
+    transform: rotate(90deg);
+    color:#117a65;
+  }
+
+  .panel i.fa-at{
+    color:#117a65;
+  }
+  .fa-map-marker-alt{
+    color:#117a65;
+  }
+
+  .map-container{
+    position: absolute;
+    top: 0; 
+    right: 0;
+    width: 70%;
+    height: 10px;
 
   }
-  .panel.p{
-    font-family: "Times New Roman";
+
+  .refund{
+    list-style-type:square;
   }
- 

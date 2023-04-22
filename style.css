@@ -10,7 +10,7 @@ html {
   }
   
   /*menu bar style */
-  ul {
+  .menu {
     margin-top: 0%;
     list-style-type: none;
     display: flex;
