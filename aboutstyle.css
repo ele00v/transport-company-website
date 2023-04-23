@@ -49,6 +49,32 @@
     margin-bottom: 10px;
     transition: max-height 0.2s ease-out;
   }
+ .panel1 {
+    display: none;
+    position: relative;
+    float: left;
+    width: 80%;
+    padding: 0 18px;
+    background-color: white;
+    overflow: hidden;
+    font-size: 20px;
+    margin-bottom: 10px;
+    transition: max-height 0.2s ease-out;
+}
+
+ .map-container {
+  float: center;
+  margin-top: -127px;
+  margin-bottom: 0px;
+  margin-left: 300px;
+  width: 500px;
+  height: 200px; 
+}
+  .map{
+    width: 500px;
+    height: 200px;
+  }
+
   .accordion-container {
     display: flex;
     flex-direction: column;
@@ -57,25 +83,13 @@
   }
   .panel i.fa-phone {
     transform: rotate(90deg);
-    color:#117a65;
   }
 
-  .panel i.fa-at{
+  .panel1 i.fa-at,.fa-map-marker-alt,.panel1 i.fa-phone {
     color:#117a65;
-  }
-  .fa-map-marker-alt{
-    color:#117a65;
-  }
-
-  .map-container{
-    position: absolute;
-    top: 0; 
-    right: 0;
-    width: 70%;
-    height: 10px;
-
   }
 
   .refund{
     list-style-type:square;
   }
+
