@@ -3,8 +3,8 @@
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Road Runners Bus Lines</title>
-	<link rel="stylesheet" href="schedulestyle.css">
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="stylesheets\schedulestyle.css">
+	<link rel="stylesheet" href="stylesheets\style.css">
 	<link rel="icon" type="images/x-icon" href="images\logo2.png" />  
 <body>
     <header>
@@ -16,6 +16,39 @@
 			<li><a href="about.html">About</a></li>
 		</ul>
 	</header>
+	<div class="submit-form">
+		<h5>Bus Schedule:</h5>
+			<form id="form-submit" action="" method="get">
+				<fieldset>
+					<label for="from">From:</label>
+					<select required name='from'>
+						<option value="">Select a location...</option>
+						<option value="Athens">Athens</option>
+                        <option value="Thessaloniki">Thessaloniki</option>
+                        <option value="Arta">Arta</option>
+                        <option value="Patra">Patra</option>
+                        <option value="Volos">Volos</option>
+						<option value="Giannena">Giannena</option>
+					</select>
+				</fieldset>			
+				<fieldset>
+				<label for="to">To:</label>
+					<select required name='to'>
+						<option value="">Select a location...</option>
+						<option value="Athens">Athens</option>
+                		<option value="Thessaloniki">Thessaloniki</option>
+                		<option value="Arta">Arta</option>
+                	    <option value="Patra">Patra</option>
+                	    <option value="Volos">Volos</option>
+						<option value="Giannena">Giannena</option>
+				</select>
+				</fieldset>
+				<fieldset>
+					<button type="submit" id="form-submit" class="btn">View Schedule</button>
+				</fieldset>
+			</form>
+	</div>
+	
 </body>
 
 </html>
