@@ -47,6 +47,13 @@ header {
 
 }
 
+/* Centered Pop up Message in Left bus picture */
+.hero-image:first-child .image-info {
+  left: 50%;
+  transform: translateX(-52%);
+}
+
+
 .hero-image:hover img {
   transform: scale(1.2);
 }
@@ -123,3 +130,5 @@ header {
   display: flex; 
   justify-content: center;
 }
+
+/* Test */

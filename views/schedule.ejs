@@ -6,6 +6,7 @@
 	<link rel="stylesheet" type="text/css" href="css\schedulestyle.css">
 	<link rel="stylesheet" type="text/css" href="css\style.css">
 	<link rel="icon" type="images/x-icon" href="images\logo2.png" />  
+</head>
 <body>
     <header>
 		<ul class="menu">
@@ -17,7 +18,7 @@
 		</ul>
 	</header>
 	<div class="submit-form">
-		<h5>Bus Schedule:</h5>
+		<h5>Bus Schedule</h5>
 			<form id="form-submit" action="/schedule" method="get">
 				<fieldset>
 					<label for="from">From:</label>
@@ -42,11 +43,12 @@
 				</select>
 				</fieldset>
 				<fieldset>
-					<button type="submit" id="form-submit" class="btn">View Schedule</button>
+					<button type="submit" id="c.form-submit" class="btn">View Schedule</button>
 				</fieldset>
 			</form>
 	</div>
-	<% if (data.length) { %>
+    
+	<% if (data && data.length){ %>
 		<table>
 		  <thead>
 			<tr>
@@ -73,9 +75,8 @@
 			<% }); %>
 		  </tbody>
 		</table>
-	  <% } else { %>
+	  <% }if (data && !data.length){ %>
 		<p>No results found.</p>
-	  <% } %>
-</body>
-
+	  <% } %>  
+  </body>
 </html>
