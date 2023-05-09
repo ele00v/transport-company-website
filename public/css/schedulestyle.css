@@ -120,7 +120,7 @@ select {
   color: #fff;
   font-size: 20px;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 20px;
   padding: 8px 16px;
 }
 
@@ -150,13 +150,9 @@ table {
 
 
 td, th {
-  border: 1px solid #dddddd;
+  border: 1px solid #ddd;
   text-align: left;
   padding: 8px;
-}
-
-tr:nth-child(even) {
-  background-color: #dddddd;
 }
 
 p{
