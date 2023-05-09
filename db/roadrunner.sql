@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Φιλοξενητής: 127.0.0.1
--- Χρόνος δημιουργίας: 08 Μάη 2023 στις 18:03:16
+-- Χρόνος δημιουργίας: 09 Μάη 2023 στις 12:27:08
 -- Έκδοση διακομιστή: 10.4.14-MariaDB
 -- Έκδοση PHP: 7.4.11
 
@@ -20,6 +20,19 @@ SET time_zone = "+00:00";
 --
 -- Βάση δεδομένων: `roadrunner`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Δομή πίνακα για τον πίνακα `bookings`
+--
+
+CREATE TABLE `bookings` (
+  `BOOKING_ID` int(11) NOT NULL,
+  `SCHEDULE_ID` int(11) NOT NULL,
+  `NAME` int(11) NOT NULL,
+  `SURNAME` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
