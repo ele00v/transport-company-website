@@ -7,6 +7,14 @@
   color: #117A65;
 }
 
+.bus{
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #333;
+  text-align: center;
+}
+
 /*Form Submit colouring */
 #form-submit {
   width: 50%;
@@ -15,86 +23,27 @@
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
-  
 }
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  align-items: center;
+  margin:auto;
+  width: 80%;
+  margin-top: 30px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+}
+
 /*Color for View Schedule*/
 #c.form-submit {
   background-color: #117A65;
-  border: 1px solid #ccc;
-  
 }
-
-/*Color for Bus Schedule */
-.submit-form h5 {
-  font-size: 35px;
-  font-weight: bold;
-  text-align: center;
-  margin-bottom: 30px;
-  color: #117A65;
-  
-}
-
-/* Color for table*/
-table {
-  border-collapse: collapse;
-  width: 100%;
-  margin-top: 30px;
-}
-
-th, td {
-  padding: 12px;
-  text-align: center;
-  border: 1px solid #ddd;
-  font-size: 18px;
-}
-
-th {
-  background-color: #117A65;
-  color: #fff;
-  font-weight: bold;
-}
-
-tr:nth-child(even) {
-  background-color: #f2f2f2;
-}
-
-tr:hover {
-  background-color: #ddd;
-}
-
-table {
-  border-collapse: collapse;
-  width: 80%;
-  margin: 50px auto;
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
-  overflow: hidden;
-}
-
-th, td {
-  padding: 12px 20px;
-  text-align: center;
-  border: 1px solid #ddd;
-  font-size: 18px;
-}
-
-th {
-  background-color: #117A65;
-  color: #fff;
-  font-weight: bold;
-}
-
 
 /* Style for the fieldset element */
 fieldset {
   margin-bottom: 10px;
   border: none;
-}
-
-/* Style for the label element */
-label {
-  display: block;
-  margin-bottom: 5px;
 }
 
 /* Style for the select element */
@@ -129,36 +78,29 @@ select {
   background-color: #185c4f;
 }
 
-h5{
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin-bottom: 20px;
-  color: #333;
-  text-align: center;
+/* Style for the label element */
+label {
+  display: block;
+  margin-bottom: 5px;
 }
-
-table {
-  font-family: arial, sans-serif;
-  border-collapse: collapse;
-  align-items: center;
-  margin:auto;
-  width: 80%;
-  margin-top: 30px;
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
-  }
-  
-
-
-td, th {
-  border: 1px solid #ddd;
-  text-align: left;
-  padding: 8px;
-}
-
-p{
+.else{
   font-size: 25px;
   text-align: center;
 }
 
+th {
+  background-color: #117A65;
+  color: #fff;
+  font-weight: bold;
+}
 
-/*Test*/
+tr:hover {
+  background-color: #d1c1c1;
+}
+
+th, td {
+  padding: 12px 20px;
+  text-align: center;
+  border: 1px solid #ddd;
+  font-size: 18px;
+}

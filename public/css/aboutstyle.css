@@ -70,26 +70,26 @@
   width: 500px;
   height: 200px; 
 }
-  .map{
+.map{
     width: 500px;
     height: 200px;
-  }
+}
 
-  .accordion-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  .panel i.fa-phone {
-    transform: rotate(90deg);
-  }
+.accordion-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.panel i.fa-phone {
+  transform: rotate(90deg);
+}
 
-  .panel1 i.fa-at,.fa-map-marker-alt,.panel1 i.fa-phone {
-    color:#117a65;
-  }
+.panel1 i.fa-at,.fa-map-marker-alt,.panel1 i.fa-phone {
+  color:#117a65;
+}
 
-  .refund{
-    list-style-type:square;
-  }
+.refund{
+  list-style-type:square;
+}
 
