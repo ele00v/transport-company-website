@@ -1,8 +1,11 @@
 const mysql = require('mysql2');
 const express = require('express');
 const path = require('path');
-const app = express();
+const bodyParser = require('body-parser');
 
+const app = express();
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json())
 // Set the views directory
 app.set('views', path.join(__dirname, 'views'));
 
@@ -80,40 +83,30 @@ app.get('/get_dates', (req, res) => {
 });
 
 app.post('/book', (req, res) => {
-  const from=req.query.from;
-  const to = req.query.to;
-  const date = req.query.date;
-  const fname = req.query.fname;
-  const lname = req.query.lname;
+  const fromCity = req.body.from;
+  const toCity = req.body.to;
+  const date = req._read.date;
+  const firstName = req.body.fname;
+  const lastName = req.body.lname;
+  console.log(date);
+  console.log(lastName);
+  console.log(fromCity);
+  console.log(toCity);
+  console.log(firstName);/*
+  // Query the database to get the schedule_id
+  connection.query('SELECT schedule_id FROM schedule WHERE from_city=? AND to_city=? AND date_t=?', [fromCity, toCity, date], (err, results) => {
+    if (err) throw err;
+    const scheduleId = results;
+    console.log(results);
 
-  // Retrieve the schedule id based on the selected from_city, to_city, and date_t values
-  connection.query(`SELECT SCHEDULE_ID FROM schedule WHERE FROM_CITY = ? AND TO_CITY = ? AND DATE_FORMAT(DATE_T, \'%d/%m/%Y %H:%i\')= ?`, [from, to, date], (error, results) => {
-    if (error) {
-      console.error(error);
-      res.status(500).send('Internal server error');
-    } else {
-
-      // If the query returns no results, return an error
-      if (results.length === 0) {
-        res.status(400).send('Invalid schedule selected');
-        return;
-      }
-
-      const scheduleId = results[0].id;
-
-      // Insert the booking into the database
-      connection.query('INSERT INTO bookings (schedule_id, name, surname) VALUES (?, ?, ?)', [scheduleId, fname, lname], (error, results) => {
-        if (error) {
-          console.error(error);
-          res.status(500).send('Internal server error');
-        } else {
-          res.render('booking_confirmation');
-        }
-      });
-    }
-  });
+    // Insert the booking information into the database
+    connection.query('INSERT INTO bookings (schedule_id, first_name, last_name) VALUES (?, ?, ?)', [scheduleId, firstName, lastName], (err, result) => {
+      if (err) throw err;
+      // Redirect the user to a confirmation page
+      res.redirect('/confirmation');
+    });
+  });*/
 });
-
 
 // Start the server
 app.listen(3000, () => {

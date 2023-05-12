@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Φιλοξενητής: 127.0.0.1
--- Χρόνος δημιουργίας: 11 Μάη 2023 στις 16:18:29
+-- Χρόνος δημιουργίας: 12 Μάη 2023 στις 15:08:45
 -- Έκδοση διακομιστή: 10.4.14-MariaDB
 -- Έκδοση PHP: 7.4.11
 
@@ -29,9 +29,9 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `bookings` (
   `BOOKING_ID` int(11) NOT NULL,
-  `SCHEDULE_ID` int(11) NOT NULL,
-  `NAME` int(11) NOT NULL,
-  `SURNAME` int(11) NOT NULL
+  `SCHEDULE_ID` varchar(11) NOT NULL,
+  `NAME` varchar(11) NOT NULL,
+  `SURNAME` varchar(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -88,10 +88,37 @@ INSERT INTO `schedule` (`SCHEDULE_ID`, `FROM_CITY`, `TO_CITY`, `DATE_T`, `SEATS_
 --
 
 --
+-- Ευρετήρια για πίνακα `bookings`
+--
+ALTER TABLE `bookings`
+  ADD PRIMARY KEY (`BOOKING_ID`),
+  ADD KEY `SCHEDULE_ID` (`SCHEDULE_ID`);
+
+--
 -- Ευρετήρια για πίνακα `schedule`
 --
 ALTER TABLE `schedule`
   ADD PRIMARY KEY (`SCHEDULE_ID`);
+
+--
+-- AUTO_INCREMENT για άχρηστους πίνακες
+--
+
+--
+-- AUTO_INCREMENT για πίνακα `bookings`
+--
+ALTER TABLE `bookings`
+  MODIFY `BOOKING_ID` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- Περιορισμοί για άχρηστους πίνακες
+--
+
+--
+-- Περιορισμοί για πίνακα `bookings`
+--
+ALTER TABLE `bookings`
+  ADD CONSTRAINT `bookings_ibfk_1` FOREIGN KEY (`SCHEDULE_ID`) REFERENCES `schedule` (`SCHEDULE_ID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
