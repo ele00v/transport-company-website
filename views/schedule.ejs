@@ -2,28 +2,38 @@
 <html>
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- The title of the webpage -->
 	<title>Road Runners Bus Lines</title>
+	<!-- Linking an external CSS file named "schedulestyle.css" for styling the page -->
 	<link rel="stylesheet" type="text/css" href="css\schedulestyle.css">
+	<!-- Linking an external CSS file named "style.css" for additional styling -->
 	<link rel="stylesheet" type="text/css" href="css\style.css">
+	<!-- Linking  the "logo2.png" image file -->
 	<link rel="icon" type="images/x-icon" href="images\logo2.png" />  
-</head>
-<body>
-    <header>
+	<!-- Navigation Bar -->
+	<header>
 		<ul class="menu">
-		    <li><img src="images\logo.png"></li>
+			<li><img src="images\logo.png"></li>
 			<li><a href="home">Home</a></li>
 			<li><a class="active" href="schedule">Schedule</a></li>
 			<li><a href="book">Book</a></li>
 			<li><a href="about">About</a></li>
 		</ul>
 	</header>
+</head>
+<body>
+	<!-- Bus schedule form -->
 	<div class="submit-form">
+		<!-- Page Title "Bus Schedule" -->
 		<h5 class="bus">Bus Schedule</h5>
 			<form id="form-submit" action="/schedule" method="get">
 				<fieldset>
+					 <!-- Label for the "from" select input -->
 					<label for="from">From:</label>
 					<select required name='from'>
+                		<!-- Default option with no value, serving as a placeholder -->
 						<option value="">Select a location...</option>
+						<!-- Options for different departure locations -->
 						<option value="Athens">Athens</option>
                         <option value="Thessaloniki">Thessaloniki</option>
                         <option value="Arta">Arta</option>
@@ -32,47 +42,58 @@
 					</select>
 				</fieldset>			
 				<fieldset>
+				<!-- Label for the "to" select input -->
 				<label for="to">To:</label>
 					<select required name='to'>
+						<!-- Default option with no value, serving as a placeholder -->
 						<option value="">Select a location...</option>
+						<!-- Options for different destination locations -->
 						<option value="Athens">Athens</option>
                 		<option value="Thessaloniki">Thessaloniki</option>
                 		<option value="Arta">Arta</option>
                 	    <option value="Patra">Patra</option>
                 	    <option value="Volos">Volos</option>
-				</select>
+					</select>
 				</fieldset>
 				<fieldset>
+					<!-- Submit button for submitting the form to view the schedule -->
 					<button type="submit" id="c.form-submit" class="btn">View Schedule</button>
 				</fieldset>
 			</form>
 	</div>
-    
+    <!-- If statement checking if 'data' exists and has a length greater than 0 -->
 	<% if (data && data.length){ %>
 		<table>
-		  <thead>
-			<tr>
-			  <th>From</th>
-			  <th>To</th>
-			  <th>Date</th>
-			  <th>Seats Available</th>
-			  <th>Price</th>
-			</tr>
-		  </thead>
-		  <tbody>
-			<% data.forEach(function(row) { %>
-			  <tr>
-				<td><%= row.FROM_CITY %></td>
-				<td><%= row.TO_CITY %></td>
-				<td><%= row.DATE_T %></td>
-				<td><%= row.SEATS_AVAIL %></td>
-				<td><%= row.PRICE %></td>
-			  </tr>
-			<% }); %>
+			<!-- Table header section -->
+			<thead>
+				<!-- Table header row -->
+				<tr>
+			  		<th>From</th>
+			  		<th>To</th>
+			  		<th>Date</th>
+			  		<th>Seats Available</th>
+			  		<th>Price</th>
+				</tr>
+		  	</thead>
+			<!-- Table body section -->
+		 	<tbody>
+				<!-- Looping through each element in the 'data' array -->
+				<% data.forEach(function(row) { %>
+					<!-- Table row -->
+			  		<tr>
+						<td><%= row.FROM_CITY %></td>
+						<td><%= row.TO_CITY %></td>
+						<td><%= row.DATE_T %></td>
+						<td><%= row.SEATS_AVAIL %></td>
+						<td><%= row.PRICE %></td>
+					</tr>
+				<% }); %>
 		  </tbody>
 		</table>
-	  <% }if (data && !data.length){ %>
-		<p class="else">No results found.</p>
-	  <% } %>  
-  </body>
+		<!-- If statement checking if 'data' exists and has a length of 0 -->
+	  	<% }if (data && !data.length){ %>
+			<!-- Displaying "No results found." message -->
+			<p class="else">No results found.</p>
+	  	<% } %>  
+</body>
 </html>

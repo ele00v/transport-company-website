@@ -1,4 +1,4 @@
-/*about page*/
+/*This is the css file for styling the About page*/
 
 .about{
     text-align: center;
@@ -7,62 +7,65 @@
     margin: 5;
     color: #117A65;
     font-size: 40px;
-  }
-
-  .accordion {
-    background-color: #eee;
-    color: #444;
-    cursor: pointer;
-    padding: 18px;
-    width: 100%;
-    border: none;
-    text-align: center;
-    outline: none;
-    font-size: 20px;
-    transition: 0.4s;
-    width: 80%;
-    margin: 0 auto;
-  }
-
-  .accordion:after {
-    content: '\02795'; /* Unicode character for "plus" sign (+) */
-    font-size: 13px;
-    color: #777;
-    float: right;
-  }
-  
-  .accordion.active:after {
-    content: "\2796"; /* Unicode character for "minus" sign (-) */
-  }
-  .active, .accordion:hover {
-    background-color: #117A65; 
-  }
-  .panel {
-    position: relative;
-    padding: 0 18px;
-    display:none;
-    background-color: white;
-    overflow: hidden;
-    font-size: 20px;
-    width: 80%;
-    margin: 0 auto;
-    margin-bottom: 10px;
-    transition: max-height 0.2s ease-out;
-  }
- .panel1 {
-    display: none;
-    position: relative;
-    float: left;
-    width: 80%;
-    padding: 0 18px;
-    background-color: white;
-    overflow: hidden;
-    font-size: 20px;
-    margin-bottom: 10px;
-    transition: max-height 0.2s ease-out;
 }
 
- .map-container {
+.accordion {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: center;
+  outline: none;
+  font-size: 20px;
+  transition: 0.4s;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.accordion:after {
+  content: '\02795'; /* Unicode character for "plus" sign (+) */
+  font-size: 13px;
+  color: #777;
+  float: right;
+}
+
+.accordion.active:after {
+  content: "\2796"; /* Unicode character for "minus" sign (-) */
+}
+
+.active, .accordion:hover {
+  background-color: #117A65; 
+}
+
+.panel {
+  position: relative;
+  padding: 0 18px;
+  display:none;
+  background-color: white;
+  overflow: hidden;
+  font-size: 20px;
+  width: 80%;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  transition: max-height 0.2s ease-out;
+}
+
+.panel1 {
+  display: none;
+  position: relative;
+  float: left;
+  width: 80%;
+  padding: 0 18px;
+  background-color: white;
+  overflow: hidden;
+  font-size: 20px;
+  margin-bottom: 10px;
+  transition: max-height 0.2s ease-out;
+}
+
+.map-container {
   float: center;
   margin-top: -127px;
   margin-bottom: 0px;
@@ -70,9 +73,10 @@
   width: 500px;
   height: 200px; 
 }
+
 .map{
-    width: 500px;
-    height: 200px;
+  width: 500px;
+  height: 200px;
 }
 
 .accordion-container {
@@ -81,6 +85,7 @@
   justify-content: center;
   align-items: center;
 }
+
 .panel i.fa-phone {
   transform: rotate(90deg);
 }
@@ -92,4 +97,3 @@
 .refund{
   list-style-type:square;
 }
-

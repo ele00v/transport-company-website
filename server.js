@@ -44,7 +44,7 @@ app.get('/schedule', (req, res) => {
   const from = req.query.from;
   const to = req.query.to;
   // Retrieve data from the database based on the user's input
-  connection.query(`SELECT FROM_CITY, TO_CITY, DATE_FORMAT(DATE_T, \'%d/%m/%Y %H:%i\') AS DATE_T, SEATS_AVAIL, PRICE FROM schedule WHERE FROM_CITY = ? AND TO_CITY = ?`, [from, to], (error, results) => {
+  connection.query(`SELECT FROM_CITY, TO_CITY, DATE_T, SEATS_AVAIL, PRICE FROM schedule WHERE FROM_CITY = ? AND TO_CITY = ?`, [from, to], (error, results) => {
     if (error) {
       console.error(error);
       res.status(500).send('Internal server error');
@@ -70,7 +70,7 @@ app.get('/get_to_cities', (req, res) => {
 app.get('/get_dates', (req, res) => {
   const fromCity = req.query.from;
   const toCity = req.query.to;
-  const sql = 'SELECT DATE_FORMAT(DATE_T, \'%d/%m/%Y %H:%i\') AS DATE_T FROM schedule WHERE from_city = ? AND to_city = ?';
+  const sql = 'SELECT DATE_T FROM schedule WHERE from_city = ? AND to_city = ?';
 
   connection.query(sql, [fromCity, toCity], (err, results) => {
     if (err) {
@@ -78,6 +78,7 @@ app.get('/get_dates', (req, res) => {
       res.status(500).json({ error: 'Internal Server Error' });
     } else { 
       res.json(results);
+      console.log(results);
     }
   });
 });
@@ -85,16 +86,16 @@ app.get('/get_dates', (req, res) => {
 app.post('/book', (req, res) => {
   const fromCity = req.body.from;
   const toCity = req.body.to;
-  const date = req._read.date;
+  const date = req.body.date;
   const firstName = req.body.fname;
   const lastName = req.body.lname;
   console.log(date);
   console.log(lastName);
   console.log(fromCity);
   console.log(toCity);
-  console.log(firstName);/*
+  console.log(firstName);
   // Query the database to get the schedule_id
-  connection.query('SELECT schedule_id FROM schedule WHERE from_city=? AND to_city=? AND date_t=?', [fromCity, toCity, date], (err, results) => {
+  connection.query('SELECT DISTINCT schedule_id FROM schedule WHERE from_city=? AND to_city=? AND date_t=?', [fromCity, toCity, date], (err, results) => {
     if (err) throw err;
     const scheduleId = results;
     console.log(results);
@@ -102,10 +103,8 @@ app.post('/book', (req, res) => {
     // Insert the booking information into the database
     connection.query('INSERT INTO bookings (schedule_id, first_name, last_name) VALUES (?, ?, ?)', [scheduleId, firstName, lastName], (err, result) => {
       if (err) throw err;
-      // Redirect the user to a confirmation page
-      res.redirect('/confirmation');
     });
-  });*/
+  });
 });
 
 // Start the server
