@@ -7,6 +7,7 @@ header {
   margin: 0;
   padding: 0;
 }
+/*Style .Home1 */
 .Home1 {
   background-color: #F8F9F9;
   border-left: 15px solid #117A65;
@@ -16,6 +17,7 @@ header {
   text-align: center;
   color: #117A65;
 }
+/*Style .Home1 header2 */
 .Home1 h2 {
   font-size: 32px;
   margin-top: 0;
@@ -23,7 +25,7 @@ header {
   color: #117A65;
   text-align:left;
 }
-
+/*Style .Home1 header3 */
 .Home1 h3 {
   font-size: 18px;
   margin-top: 0;
@@ -32,6 +34,7 @@ header {
   color: #16A085;
 }
 
+/*Images Displaying as poping up  */
 .hero-image .image-info {
   position: absolute;
   bottom: 0;
@@ -90,45 +93,45 @@ header {
   margin-top: 200px;
    margin: 0 auto;
 }
-
+/* Styles for the hero image container */
 .hero-image {
-  position: relative;
-  flex: 1;
-  margin: 0 20px;
+  position: relative;/* Position the container relative to its normal position */
+  flex: 1; /* Allow the container to grow and fill available space */
+  margin: 0 20px; /* Set margin to 0 on top and bottom, 20px on left and right */
 }
-
+/* Styles for the hero image itself */
 .hero-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
+  width: 100%;/* Set the width of the image to 100% of its container */
+  height: 100%;/* Set the height of the image to 100% of its container */
+  object-fit: cover;/* Scale and crop the image to cover the entire container */
+  display: block;/* Display the image as a block element */
 
 }
-
+/* Styles for the image info overlay */
 .image-info {
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: rgba(14, 13, 13, 0.877);
-  color: white;
-  padding: 20px;
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
+  position: absolute; /* Position the overlay relative to the hero image container */
+  top: 0; /* Position the overlay at the top of the container */
+  left: 0; /* Position the overlay at the left of the container */
+  background-color: rgba(14, 13, 13, 0.877); /* Set the background color of the overlay */
+  color: white; /* Set the text color to white */
+  padding: 20px; /* Add padding around the content of the overlay */
+  opacity: 0; /* Set the initial opacity of the overlay to 0 */
+  transition: opacity 0.3s ease-in-out; /* Apply a transition effect to the opacity property */
 }
-
+/* Show the image info overlay on hover */
 .hero-image:hover .image-info {
-  opacity: 1;
+  opacity: 1; /* Set the opacity of the overlay to 1 on hover */
 }
-
+/* Styles for the heading inside the image info overlay */
 .image-info h3 {
-  margin-top: 0;
-  margin-bottom: 10px;
-  font-size: 24px;
-
+  margin-top: 0; /* Remove the top margin of the heading */
+  margin-bottom: 10px; /* Add a bottom margin of 10px to the heading */
+  font-size: 24px; /* Set the font size of the heading to 24px */
 }
+/* Styles for the container that holds the hero image */
 .container {
-  display: flex; 
-  justify-content: center;
+  display: flex; /* Display the container as a flex container */
+  justify-content: center; /* Center the items horizontally within the container */
 }
 
-/* Test */
+
