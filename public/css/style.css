@@ -1,53 +1,53 @@
 /* Styles for the HTML element */
 html {
-  background-color: white; /* Set the background color of the HTML element to white */
+  background-color: white; 
 }
 
 /* Styles for the body element */
 body {
   margin: 0; /* Remove margin around the body */
   padding: 0; /* Remove padding around the body */
-  align-items: center; /* Align the content vertically at the center */
-  margin-top: 0%; /* Set the top margin of the body to 0% */
+  align-items: center; 
+  margin-top: 0%; 
 }
 
 /* Styles for the menu bar */
 .menu {
-  margin-top: 0%; /* Set the top margin of the menu bar to 0% */
+  margin-top: 0%; 
   list-style-type: none; /* Remove the default bullet points from the list */
-  display: flex; /* Display the menu items as a flex container */
+  display: flex; 
   overflow: hidden; /* Hide any content that overflows the menu bar */
-  background-color: #117A65; /* Set the background color of the menu bar */
-  align-items: center; /* Align the items vertically at the center */
-  text-align: center; /* Align the text horizontally at the center */
+  background-color: #117A65; 
+  align-items: center; 
+  text-align: center; 
 }
 
 /* Styles for the menu item links */
 li a {
-  margin-right: 40px; /* Set a right margin of 40px for the menu item links */
+  margin-right: 40px; 
   float: left; /* Float the menu item links to the left */
-  display: block; /* Display the links as block elements */
-  color: white; /* Set the text color of the links to white */
-  text-align: center; /* Align the text horizontally at the center */
+  display: block; 
+  color: white; 
+  text-align: center; 
   text-decoration: none; /* Remove underlines from the links */
-  font-size: 18px; /* Set the font size of the links to 18px */
-  padding: 30px; /* Add padding around the links */
-  font-size: 30px; /* Set the font size of the links to 30px */
+  font-size: 18px; 
+  padding: 30px; 
+  font-size: 30px; 
 }
 
 /* Styles for the menu item images */
 li img {
   float: left; /* Float the menu item images to the left */
-  padding: 18px 25px; /* Add padding to the images */
-  text-align: center; /* Align the images horizontally at the center */
-  display: block; /* Display the images as block elements */
-  width: min-content; /* Set the width of the images to fit their content */
-  height: min-content; /* Set the height of the images to fit their content */
-  margin-right: 20px; /* Set a right margin of 20px for the images */
+  padding: 18px 25px; 
+  text-align: center; 
+  display: block; 
+  width: min-content; 
+  height: min-content; 
+  margin-right: 20px; 
   display: block; /* Display the images as block elements */
 }
 
 /* Styles for the menu item links on hover */
 li a:hover {
-  background-color: #4d474781; /* Set the background color of the menu item links on hover */
+  background-color: #4d474781; 
 }
