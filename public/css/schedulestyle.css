@@ -1,3 +1,4 @@
+/*This is the css file for styling the Schedule page*/
 /* Add icon before "Bus Schedule" title */
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css');
 .submit-form h5:before {
@@ -6,7 +7,7 @@
   margin-right: 10px;
   color: #117A65;
 }
-
+/*Style for the header "Bus Schedule" of the page*/
 .bus{
   font-size: 1.5rem;
   font-weight: bold;
@@ -14,7 +15,6 @@
   color: #333;
   text-align: center;
 }
-
 /*Form Submit colouring */
 #form-submit {
   width: 50%;
@@ -24,7 +24,7 @@
   border-radius: 10px;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
 }
-
+/* Style for the Schedule Table*/
 table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
@@ -34,18 +34,15 @@ table {
   margin-top: 30px;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
 }
-
-/*Color for View Schedule*/
+/*Color for "View Schedule" title*/
 #c.form-submit {
   background-color: #117A65;
 }
-
 /* Style for the fieldset element */
 fieldset {
   margin-bottom: 10px;
   border: none;
 }
-
 /* Style for the select element */
 select {
   display: block;
@@ -57,7 +54,6 @@ select {
   background-color: #fff;
   font-size: 16px;
 }
-
 /* Style for the submit button */
 .btn {
   display: block;
@@ -72,35 +68,34 @@ select {
   font-size: 20px;
   padding: 8px 16px;
 }
-
 /* Style for the submit button on hover */
 .btn:hover {
-  background-color: #185c4f;
+  background-color: #0a3830; /* the background color of the button appears darker when hoverd*/
 }
-
-/* Style for the label element */
+/* Style for the label elements "From:" and "To:" */
 label {
   display: block;
   margin-bottom: 5px;
 }
+/*Style for the "No Results Found"*/
 .else{
   font-size: 25px;
   text-align: center;
 }
-
+/*Style for the table header row*/
 th {
   background-color: #117A65;
   color: #fff;
   font-weight: bold;
 }
-
-tr:hover {
-  background-color: #d1c1c1;
-}
-
+/*Style for the table rows*/
 th, td {
   padding: 12px 20px;
   text-align: center;
   border: 1px solid #ddd;
   font-size: 18px;
+}
+/*Style for the table rows when hovered*/
+tr:hover {
+  background-color: #d1c1c1;
 }

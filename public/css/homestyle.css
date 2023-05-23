@@ -1,4 +1,4 @@
-
+/*This is the css file for styling the Home page*/
 /* Style the header */
 header {
   background-color:#f2f2f2;
@@ -33,7 +33,6 @@ header {
   line-height: 1.5;
   color: #16A085;
 }
-
 /*Images Displaying as poping up  */
 .hero-image .image-info {
   position: absolute;
@@ -49,24 +48,19 @@ header {
   transition: opacity 0.3s;
 
 }
-
 /* Centered Pop up Message in Left bus picture */
 .hero-image:first-child .image-info {
   left: 50%;
   transform: translateX(-52%); /* Move the element 52% to the left along the X-axis */
 }
-
 /* Apply the scaling transformation to the element */
 .hero-image:hover img {
   transform: scale(1.2); /* Scale the element to 120% of its original size */
 } 
-}
-
 /* Apply the CSS rule when hovering over the .hero-image element */
 .hero-image:hover .image-info {
   opacity: 1; 
 }
-
 /* Style the hero section */
 .hero {
   display: flex;
@@ -77,7 +71,6 @@ header {
   background-color: white;
   height: 600px;
 }
-
 /* Style the hero text */
 .hero-text {
   flex: 1;
@@ -85,7 +78,6 @@ header {
   max-width: 600px;
   text-align: center;
 }
-
 /* Style the hero images */
 .hero-image-group {
   flex: 1;
@@ -136,5 +128,3 @@ header {
   display: flex; 
   justify-content: center;
 }
-
-

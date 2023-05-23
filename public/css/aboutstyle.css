@@ -1,5 +1,5 @@
 /*This is the css file for styling the About page*/
-
+/*Style for the header "About" of the page*/
 .about{
     text-align: center;
     font-size: 30px;
@@ -8,63 +8,57 @@
     color: #117A65;
     font-size: 40px;
 }
-
+/*Style for the accordion*/
 .accordion {
   background-color: #eee;
   color: #444;
-  cursor: pointer;
+  cursor: pointer; /* change the appearance of the cursor when hovering over the accordion*/
   padding: 18px;
   width: 100%;
   border: none;
   text-align: center;
   outline: none;
   font-size: 20px;
-  transition: 0.4s;
   width: 80%;
   margin: 0 auto;
 }
-
 .accordion:after {
-  content: '\02795'; /* Unicode character for "plus" sign (+) */
+  content: '\02795'; /* Unicode character for "plus" sign (+) for when panel is closed*/
   font-size: 13px;
   color: #777;
   float: right;
 }
-
 .accordion.active:after {
-  content: "\2796"; /* Unicode character for "minus" sign (-) */
+  content: "\2796"; /* Unicode character for "minus" sign (-) for when panel is open*/
 }
-
 .active, .accordion:hover {
-  background-color: #117A65; 
+  background-color: #117A65;  /* change the color of the accordion section when hovering over it*/
 }
-
+/*Style for the accordion sections "Our Company" and "Policy and Terms"*/
 .panel {
+  display:none;
   position: relative;
   padding: 0 18px;
-  display:none;
   background-color: white;
   overflow: hidden;
   font-size: 20px;
   width: 80%;
   margin: 0 auto;
   margin-bottom: 10px;
-  transition: max-height 0.2s ease-out;
 }
-
+/*Style for the accordion section "Communication"*/
 .panel1 {
   display: none;
   position: relative;
-  float: left;
-  width: 80%;
   padding: 0 18px;
   background-color: white;
   overflow: hidden;
   font-size: 20px;
+  width: 80%;
   margin-bottom: 10px;
-  transition: max-height 0.2s ease-out;
+  float: left; /*the elements in the Communication section are on the left side of the container*/
 }
-
+/*Define the placement of the map*/
 .map-container {
   float: center;
   margin-top: -127px;
@@ -73,27 +67,22 @@
   width: 500px;
   height: 200px; 
 }
-
+/*Define the size of the map*/
 .map{
   width: 500px;
   height: 200px;
 }
-
 .accordion-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-
-.panel i.fa-phone {
-  transform: rotate(90deg);
-}
-
+/*Change the color of the icons in the Communication panel */
 .panel1 i.fa-at,.fa-map-marker-alt,.panel1 i.fa-phone {
   color:#117a65;
 }
-
+/*Style for the "Refunds and Cancelletions" list */
 .refund{
   list-style-type:square;
 }

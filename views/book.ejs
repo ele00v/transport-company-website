@@ -60,36 +60,35 @@
 			</fieldset>
 		</form>
 	</div>
-	</div>
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
-      $(function() {
-        $('#from').change(function() {
-          var fromCity = $(this).val();
-          $.getJSON('/get_to_cities', {from: fromCity}, function(data) {
-            var options = '<option value="">Select a location...</option>';
-            $.each(data, function(key, value) {
-              options += '<option value="' + value.to_city + '">' + value.to_city + '</option>';
-            });
-            $('#to').html(options);
-          });
-        });
-      });
+      	$(function() {
+        	$('#from').change(function() {
+          		var fromCity = $(this).val();
+          		$.getJSON('/get_to_cities', {from: fromCity}, function(data) {
+            		var options = '<option value="">Select a location...</option>';
+            		$.each(data, function(key, value) {
+              			options += '<option value="' + value.to_city + '">' + value.to_city + '</option>';
+            		});
+            		$('#to').html(options);
+          		});
+        	});
+      	});
     </script>
 	<script>
-	$(function() {
-		$('#to').change(function() {
-      	var fromCity = $('#from').val();
-      	var toCity = $(this).val();
-      	$.getJSON('/get_dates', {from: fromCity, to: toCity}, function(data) {
-        var options = '<option value="">Select a date...</option>';
-        $.each(data, function(key, value) {
-          options += '<option value="' + value.date + '">' + value.DATE_T + '</option>';
-        });
-        $('#date').html(options);
-      	});
-    	});
-  	});
+		$(function() {
+			$('#to').change(function() {
+      			var fromCity = $('#from').val();
+      			var toCity = $(this).val();
+      			$.getJSON('/get_dates', {from: fromCity, to: toCity}, function(data) {
+       		 		var options = '<option value="">Select a date...</option>';
+        			$.each(data, function(key, value) {
+          				options += '<option value="' + value.date + '">' + value.DATE_T + '</option>';
+        			});
+        			$('#date').html(options);
+      			});
+    		});
+  		});
 	</script>
 </body>
 </html>

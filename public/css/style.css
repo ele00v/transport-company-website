@@ -2,7 +2,6 @@
 html {
   background-color: white; 
 }
-
 /* Styles for the body element */
 body {
   margin: 0; /* Remove margin around the body */
@@ -10,7 +9,6 @@ body {
   align-items: center; 
   margin-top: 0%; 
 }
-
 /* Styles for the menu bar */
 .menu {
   margin-top: 0%; 
@@ -21,7 +19,6 @@ body {
   align-items: center; 
   text-align: center; 
 }
-
 /* Styles for the menu item links */
 li a {
   margin-right: 40px; 
@@ -34,7 +31,6 @@ li a {
   padding: 30px; 
   font-size: 30px; 
 }
-
 /* Styles for the menu item images */
 li img {
   float: left; /* Float the menu item images to the left */
@@ -46,7 +42,6 @@ li img {
   margin-right: 20px; 
   display: block; /* Display the images as block elements */
 }
-
 /* Styles for the menu item links on hover */
 li a:hover {
   background-color: #4d474781; 
