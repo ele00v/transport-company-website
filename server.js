@@ -5,9 +5,15 @@ const bodyParser = require('body-parser');
 
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json())
+app.use(bodyParser.json());
 // Set the views directory
 app.set('views', path.join(__dirname, 'views'));
+app.use(express.json());
+// Start the server
+app.listen(3000, () => {
+  console.log('Server is running on port 3000');
+});
+
 
 // Connect to the database
 const connection = mysql.createConnection({
@@ -89,25 +95,25 @@ app.post('/book', (req, res) => {
   const date = req.body.date;
   const firstName = req.body.fname;
   const lastName = req.body.lname;
+  const email = req.body.email;
   console.log(date);
-  console.log(lastName);
   console.log(fromCity);
   console.log(toCity);
-  console.log(firstName);
-  // Query the database to get the schedule_id
-  connection.query('SELECT DISTINCT schedule_id FROM schedule WHERE from_city=? AND to_city=? AND date_t=?', [fromCity, toCity, date], (err, results) => {
-    if (err) throw err;
-    const scheduleId = results;
-    console.log(results);
-
-    // Insert the booking information into the database
-    connection.query('INSERT INTO bookings (schedule_id, first_name, last_name) VALUES (?, ?, ?)', [scheduleId, firstName, lastName], (err, result) => {
-      if (err) throw err;
-    });
-  });
-});
-
-// Start the server
-app.listen(3000, () => {
-  console.log('Server is running on port 3000');
+  connection.query(
+    'SELECT schedule_id FROM schedule WHERE from_city = ? AND to_city = ? AND DATE(date_t) = DATE(?)',
+    [fromCity, toCity, date],
+    (err, results) => {
+      if (err) {
+        console.log(err);
+        res.status(500).json({ error: 'Internal Server Error' });
+      } else {
+        if (results.length === 0) {
+          res.status(404).json({ error: 'No schedule found' });
+        } else {
+          const scheduleId = results[0].schedule_id;
+          console.log(scheduleId);
+        }
+      }
+    }
+  );
 });

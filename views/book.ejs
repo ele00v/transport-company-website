@@ -44,7 +44,7 @@
 			</fieldset>
 			<fieldset>
 				<label for="date">Date:</label>
-				<select required name='date' id="date">
+				<select  name="date" id="date" >
 					<option value="">Select a date...</option>
 				</select>
 			</fieldset>
@@ -59,7 +59,7 @@
 			</fieldset>
 			<fieldset>
 				<label for="email">Email:</label><br>
-				<input type="text" id="email" name="emai" value=""><br>
+				<input type="text" id="email" name="email" value=""><br>
 			</fieldset>
 			</div>
 			<fieldset>
@@ -84,18 +84,25 @@
     </script>
 	<script>
 		$(function() {
-			$('#to').change(function() {
-      			var fromCity = $('#from').val();
-      			var toCity = $(this).val();
-      			$.getJSON('/get_dates', {from: fromCity, to: toCity}, function(data) {
-       		 		var options = '<option value="">Select a date...</option>';
-        			$.each(data, function(key, value) {
-          				options += '<option value="' + value.date + '">' + value.DATE_T + '</option>';
-        			});
-        			$('#date').html(options);
-      			});
-    		});
-  		});
-	</script>
+		  $('#to').change(function() {
+			var fromCity = $('#from').val();
+			var toCity = $(this).val();
+			$.getJSON('/get_dates', { from: fromCity, to: toCity }, function(data) {
+			  var options = '<option value="">Select a date...</option>';
+			  $.each(data, function(key, value) {
+				var formattedDate = new Date(value.DATE_T).toLocaleString('en-US', {
+				  year: 'numeric',
+				  month: '2-digit',
+				  day: '2-digit',
+				  hour: '2-digit',
+				  minute: '2-digit'
+				});
+				options += '<option value="' + value.DATE_T + '">' + formattedDate + '</option>';
+			  });
+			  $('#date').html(options);
+			});
+		  });
+		});
+	  </script>
 </body>
 </html>
