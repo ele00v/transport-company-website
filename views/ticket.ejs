@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- The title of the webpage -->
+  <title>Road Runners Bus Lines</title>
+  <!-- Linking an external CSS file named "ticketstyle.css" for styling the page -->
+  <link rel="stylesheet" type="text/css" href="css/ticketstyle.css">
+  <!-- Linking an external CSS file named "style.css" for additional styling -->
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <!-- Linking the "logo2.png" image file -->
+  <link rel="icon" type="images/x-icon" href="images/logo2.png" />
+  <!-- Navigation Bar -->
+  <header>
+    <ul class="menu">
+      <li><img src="images/logo.png"></li>
+      <li><a href="home">Home</a></li>
+      <li><a href="schedule">Schedule</a></li>
+      <li><a class="active" href="book">Book</a></li>
+      <li><a href="about">About</a></li>
+    </ul>
+  </header>
+</head>
+<body>
+    <!-- Display of Ticket Info -->
+    <div class="ticket-header">
+      <img src="images/logo2.png" alt="Icon">
+      <h1>Ticket Information</h1>
+    </div>
+      <h2>Name: <%= firstName %></h2>
+      <h2>Surname: <%= lastName %></h2>
+      <h2>Booking ID: <%= bookingId %></h2>
+      <h2>Email: <%= email %></h2>
+    <button class="btn-print" onclick="printTicket()">Print Ticket</button>
+      <script>
+         function printTicket() {
+         // Trigger the browser's print dialog
+          window.print();
+        //Alert message after printing 
+         setTimeout(function() {
+         alert("Now that you have your Booking Info , do not foget to take this to our offices in order to pay for your trip!");
+      }, 100);
+    }
+       </script>
+    </body>
+</html>

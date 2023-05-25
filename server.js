@@ -2,6 +2,8 @@ const mysql = require('mysql2');
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
+const { PDFDocument, StandardFonts } = require('pdf-lib');
+const fs = require('fs');
 
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -112,8 +114,48 @@ app.post('/book', (req, res) => {
         } else {
           const scheduleId = results[0].schedule_id;
           console.log(scheduleId);
+          // Insert the email information into the database
+          connection.query(
+            'INSERT INTO user_emails (schedule_id, first_name, last_name, email) VALUES (?, ?, ?, ?)',
+            [scheduleId, firstName, lastName, email],
+            (insertErr, insertResult) => {
+              if (insertErr) {
+                console.log(insertErr);
+                res.status(500).json({ error: 'Failed to insert email' });
+              } else {
+                // Retrieve the inserted email information
+                connection.query(
+                  'SELECT first_name, last_name, schedule_id, email FROM user_emails WHERE id = ?',
+                  [insertResult.insertId],
+                  (selectErr, selectResult) => {
+                    if (selectErr) {
+                      console.log(selectErr);
+                      res.status(500).json({ error: 'Failed to retrieve email information' });
+                    } else {
+                      // Log the email information
+                      console.log('First Name:', selectResult[0].first_name);
+                      console.log('Last Name:', selectResult[0].last_name);
+                      console.log('Booking ID:', selectResult[0].schedule_id);
+                      console.log('Email:', selectResult[0].email);
+
+                      // Render the ticket page with the required information
+                      res.render('ticket', {
+                        firstName: selectResult[0].first_name,
+                        lastName: selectResult[0].last_name,
+                        bookingId: selectResult[0].schedule_id,
+                        email: selectResult[0].email
+                      });
+                    }
+                  }
+                );
+              }
+            }
+          );
         }
       }
     }
   );
 });
+
+
+

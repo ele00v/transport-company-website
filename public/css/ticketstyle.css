@@ -1,0 +1,55 @@
+/* Style h1,h2 */
+h1 {
+    background-color:#f2f2f2;
+    text-align: center;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    color: #117A65;
+  }
+  h2 {
+    font-size: 25px;
+    margin-top: 0;
+    margin-bottom: 20px;
+    text-align:center;
+  }
+  /* Style for the submit button */
+.btn-print {
+    display: block;
+    width: 20%;
+    margin: 0 auto;
+    border: none;
+    border-radius: 3px;
+    background-color: #117A65;
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 8px 16px;
+  }
+    /* Hide navigation bar from printing */
+    @media print {
+      header {
+        display: none ;
+      }
+    }
+       /* Hide print button from printing */
+       @media print {
+        .btn-print {
+          display: none ;
+        }
+      }
+       
+      /*Visual adaptations for the logo to be displayed */
+      .ticket-header {
+        text-align: center;
+      }
+      
+      .ticket-header img {
+        width: 100px; 
+        margin-bottom: 10px; 
+      }
+      
+
+
+
+      
