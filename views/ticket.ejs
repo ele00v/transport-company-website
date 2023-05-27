@@ -25,22 +25,30 @@
     <!-- Display of Ticket Info -->
     <div class="ticket-header">
       <img src="images/logo2.png" alt="Icon">
-      <h1>Ticket Information</h1>
+      <h1>Ticket</h1>
+      <h2>Reservation Information</h2>
+      <h3>Name: <%= name %></h3>
+      <h3>Surname: <%= surname %></h3>
+      <h3>Email: <%= email %></h3>
+      <h3>From: <%= from %></h3>
+      <h3>To: <%= to %></h3>
+      <h3>Date: <%= new Date(date_t).toLocaleString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' }) %></h3>
+      <h2>Payment Information</h2>
+      <h3>Price: <%= price %></h3>
+      <h3>IBAN:GR1566325441522322366611<h3>
+      <h3>If you do not pay the ticket price within 24 hours from the Booking your ticket will be cancelled
+   
     </div>
-      <h2>Name: <%= firstName %></h2>
-      <h2>Surname: <%= lastName %></h2>
-      <h2>Booking ID: <%= bookingId %></h2>
-      <h2>Email: <%= email %></h2>
     <button class="btn-print" onclick="printTicket()">Print Ticket</button>
       <script>
-         function printTicket() {
-         // Trigger the browser's print dialog
+        function printTicket() {
+          // Trigger the browser's print dialog
           window.print();
-        //Alert message after printing 
-         setTimeout(function() {
-         alert("Now that you have your Booking Info , do not foget to take this to our offices in order to pay for your trip!");
-      }, 100);
-    }
-       </script>
-    </body>
+          //Alert message after printing 
+          setTimeout(function() {
+            alert("Now that you have your Booking Info , do not foget to take this to our offices in order to pay for your trip!");
+          }, 100);
+        }
+      </script>
+</body>
 </html>

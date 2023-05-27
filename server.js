@@ -86,7 +86,6 @@ app.get('/get_dates', (req, res) => {
       res.status(500).json({ error: 'Internal Server Error' });
     } else { 
       res.json(results);
-      console.log(results);
     }
   });
 });
@@ -98,9 +97,6 @@ app.post('/book', (req, res) => {
   const firstName = req.body.fname;
   const lastName = req.body.lname;
   const email = req.body.email;
-  console.log(date);
-  console.log(fromCity);
-  console.log(toCity);
   connection.query(
     'SELECT schedule_id FROM schedule WHERE from_city = ? AND to_city = ? AND DATE(date_t) = DATE(?)',
     [fromCity, toCity, date],
@@ -113,42 +109,39 @@ app.post('/book', (req, res) => {
           res.status(404).json({ error: 'No schedule found' });
         } else {
           const scheduleId = results[0].schedule_id;
-          console.log(scheduleId);
           // Insert the email information into the database
           connection.query(
-            'INSERT INTO user_emails (schedule_id, first_name, last_name, email) VALUES (?, ?, ?, ?)',
+            'INSERT INTO bookings (schedule_id, name, surname, email) VALUES (?, ?, ?, ?)',
             [scheduleId, firstName, lastName, email],
             (insertErr, insertResult) => {
               if (insertErr) {
                 console.log(insertErr);
                 res.status(500).json({ error: 'Failed to insert email' });
-              } else {
-                // Retrieve the inserted email information
-                connection.query(
-                  'SELECT first_name, last_name, schedule_id, email FROM user_emails WHERE id = ?',
-                  [insertResult.insertId],
-                  (selectErr, selectResult) => {
-                    if (selectErr) {
-                      console.log(selectErr);
-                      res.status(500).json({ error: 'Failed to retrieve email information' });
-                    } else {
-                      // Log the email information
-                      console.log('First Name:', selectResult[0].first_name);
-                      console.log('Last Name:', selectResult[0].last_name);
-                      console.log('Booking ID:', selectResult[0].schedule_id);
-                      console.log('Email:', selectResult[0].email);
-
-                      // Render the ticket page with the required information
-                      res.render('ticket', {
-                        firstName: selectResult[0].first_name,
-                        lastName: selectResult[0].last_name,
-                        bookingId: selectResult[0].schedule_id,
-                        email: selectResult[0].email
-                      });
-                    }
+              } else // Retrieve the inserted email information
+              connection.query(
+                'SELECT b.name, b.surname, b.email, s.from_city, s.to_city, s.date_t, s.price FROM bookings AS b INNER JOIN schedule AS s ON b.schedule_id = s.schedule_id WHERE b.booking_id = ?',
+                [insertResult.insertId],
+                (selectErr, selectResult) => {
+                  if (selectErr) {
+                    console.log(selectErr);
+                    res.status(500).json({ error: 'Failed to retrieve email information' });
+                  } else if (selectResult.length === 0) {
+                    console.log('No email information found');
+                    res.status(500).json({ error: 'No email information found' });
+                  } else {
+                    // Render the ticket page with the required information
+                    res.render('ticket', {
+                      name: selectResult[0].name,
+                      surname: selectResult[0].surname,
+                      email: selectResult[0].email,
+                      from:selectResult[0].from_city,
+                      to:selectResult[0].to_city,
+                      date_t:selectResult[0].date_t,
+                      price:selectResult[0].price,
+                    });
                   }
-                );
-              }
+                }
+              );
             }
           );
         }
