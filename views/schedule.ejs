@@ -83,7 +83,13 @@
 			  		<tr>
 						<td><%= row.FROM_CITY %></td>
 						<td><%= row.TO_CITY %></td>
-						<td><%= row.DATE_T %></td>
+						<td><%= new Date(row.DATE_T).toLocaleString('en-US', {
+							year: 'numeric',
+							month: '2-digit',
+							day: '2-digit',
+							hour: '2-digit',
+							minute: '2-digit'
+						  }) %></td>
 						<td><%= row.SEATS_AVAIL %></td>
 						<td><%= row.PRICE %></td>
 					</tr>
