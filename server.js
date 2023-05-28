@@ -97,58 +97,104 @@ app.post('/book', (req, res) => {
   const firstName = req.body.fname;
   const lastName = req.body.lname;
   const email = req.body.email;
-  connection.query(
-    'SELECT schedule_id FROM schedule WHERE from_city = ? AND to_city = ? AND DATE(date_t) = DATE(?)',
-    [fromCity, toCity, date],
-    (err, results) => {
-      if (err) {
-        console.log(err);
-        res.status(500).json({ error: 'Internal Server Error' });
-      } else {
-        if (results.length === 0) {
-          res.status(404).json({ error: 'No schedule found' });
-        } else {
-          const scheduleId = results[0].schedule_id;
-          // Insert the email information into the database
-          connection.query(
-            'INSERT INTO bookings (schedule_id, name, surname, email) VALUES (?, ?, ?, ?)',
-            [scheduleId, firstName, lastName, email],
-            (insertErr, insertResult) => {
-              if (insertErr) {
-                console.log(insertErr);
-                res.status(500).json({ error: 'Failed to insert email' });
-              } else // Retrieve the inserted email information
-              connection.query(
-                'SELECT b.name, b.surname, b.email, s.from_city, s.to_city, s.date_t, s.price FROM bookings AS b INNER JOIN schedule AS s ON b.schedule_id = s.schedule_id WHERE b.booking_id = ?',
-                [insertResult.insertId],
-                (selectErr, selectResult) => {
-                  if (selectErr) {
-                    console.log(selectErr);
-                    res.status(500).json({ error: 'Failed to retrieve email information' });
-                  } else if (selectResult.length === 0) {
-                    console.log('No email information found');
-                    res.status(500).json({ error: 'No email information found' });
-                  } else {
-                    // Render the ticket page with the required information
-                    res.render('ticket', {
-                      name: selectResult[0].name,
-                      surname: selectResult[0].surname,
-                      email: selectResult[0].email,
-                      from:selectResult[0].from_city,
-                      to:selectResult[0].to_city,
-                      date_t:selectResult[0].date_t,
-                      price:selectResult[0].price,
-                    });
-                  }
-                }
-              );
-            }
-          );
-        }
-      }
+  
+  connection.beginTransaction((err) => {
+    if (err) {
+      console.log(err);
+      res.status(500).json({ error: 'Internal Server Error' });
+      return;
     }
-  );
-});
 
+    // Check if the schedule exists and retrieve the schedule_id
+    connection.query(
+      'SELECT schedule_id, seats_avail FROM schedule WHERE from_city = ? AND to_city = ? AND DATE(date_t) = DATE(?) FOR UPDATE',
+      [fromCity, toCity, date],
+      (selectErr, selectResults) => {
+        if (selectErr) {
+          console.log(selectErr);
+          res.status(500).json({ error: 'Failed to retrieve schedule' });
+          return connection.rollback();
+        }
+
+        if (selectResults.length === 0) {
+          res.status(404).json({ error: 'No schedule found' });
+          return connection.rollback();
+        }
+
+        const scheduleId = selectResults[0].schedule_id;
+        const seatsAvail = selectResults[0].seats_avail;
+
+        if (seatsAvail <= 0) {
+          res.status(400).json({ error: 'No seats available' });
+          return connection.rollback();
+        }
+
+        // Decrease the seats_avail by 1
+        const updatedSeatsAvail = seatsAvail - 1;
+
+        // Update the seats_avail value
+        connection.query(
+          'UPDATE schedule SET seats_avail = ? WHERE schedule_id = ?',
+          [updatedSeatsAvail, scheduleId],
+          (updateErr, updateResult) => {
+            if (updateErr) {
+              console.log(updateErr);
+              res.status(500).json({ error: 'Failed to update seats availability' });
+              return connection.rollback();
+            }
+
+            // Insert the email information into the bookings table
+            connection.query(
+              'INSERT INTO bookings (schedule_id, name, surname, email) VALUES (?, ?, ?, ?)',
+              [scheduleId, firstName, lastName, email],
+              (insertErr, insertResult) => {
+                if (insertErr) {
+                  console.log(insertErr);
+                  res.status(500).json({ error: 'Failed to insert email' });
+                  return connection.rollback();
+                }
+
+                // Commit the transaction if everything is successful
+                connection.commit((commitErr) => {
+                  if (commitErr) {
+                    console.log(commitErr);
+                    res.status(500).json({ error: 'Failed to commit transaction' });
+                    return connection.rollback();
+                  }
+
+                  // Retrieve the inserted email information
+                  connection.query(
+                    'SELECT b.name, b.surname, b.email, s.from_city, s.to_city, s.date_t, s.price FROM bookings AS b INNER JOIN schedule AS s ON b.schedule_id = s.schedule_id WHERE b.booking_id = ?',
+                    [insertResult.insertId],
+                    (selectErr, selectResult) => {
+                      if (selectErr) {
+                        console.log(selectErr);
+                        res.status(500).json({ error: 'Failed to retrieve email information' });
+                      } else if (selectResult.length === 0) {
+                        console.log('No email information found');
+                        res.status(500).json({ error: 'No email information found' });
+                      } else {
+                        // Render the ticket page with the required information
+                        res.render('ticket', {
+                          name: selectResult[0].name,
+                          surname: selectResult[0].surname,
+                          email: selectResult[0].email,
+                          from: selectResult[0].from_city,
+                          to: selectResult[0].to_city,
+                          date_t: selectResult[0].date_t,
+                          price: selectResult[0].price,
+                        });
+                      }
+                    }
+                  );
+                });
+              }
+            );
+          }
+        );
+      }
+    );
+  });
+});
 
 
