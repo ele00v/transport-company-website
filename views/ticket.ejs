@@ -10,6 +10,8 @@
   <link rel="stylesheet" type="text/css" href="css/style.css">
   <!-- Linking the "logo2.png" image file -->
   <link rel="icon" type="images/x-icon" href="images/logo2.png" />
+  <!-- Linking an external CSS file for Font Awesome icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
   <!-- Navigation Bar -->
   <header>
     <ul class="menu">
@@ -24,7 +26,7 @@
 <body>
     <!-- Display of Ticket Info -->
     <div class="ticket-header">
-      <img src="images/logo2.png" alt="Icon">
+      <img src="images/logo2.png" alt="Icon" >
       <h1>Ticket</h1>
       <h2>Reservation Information</h2>
       <h3>Name: <%= name %></h3>
@@ -37,7 +39,10 @@
       <h3>Price: <%= price %></h3>
       <h3>IBAN:GR1566325441522322366611<h3>
       <h3>If you do not pay the ticket price within 24 hours from the booking your ticket will be cancelled.</h3>
-   
+      <h3>For more information contact us:
+      <p><i class="fas fa-phone"></i>2104001890</p>
+      <p><i class="fas fa-at"></i> roadrunner@gmail.com</p>
+      <p><i class="fas fa-map-marker-alt"></i> Ermou Street Athens,Greece</p></h3>
     </div>
     <button class="btn-print" onclick="printTicket()">Print Ticket</button>
       <script>

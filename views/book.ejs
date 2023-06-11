@@ -22,13 +22,18 @@
 	</header>
 </head> 
 <body>
+	<!-- Book ticket form -->
 	<div class="submit-form">
+		<!-- Page Title "Book Ticket" -->
 		<h5 class="book">Book Ticket</h5>
 		<form id="form-submit" action="/book" method="post">
 			<fieldset>
+				<!-- Label for the "from" select input -->
 				<label for="from">From:</label>
 				<select required name='from' id="from">
+					<!-- Default option with no value, serving as a placeholder -->
 					<option value="">Select a location...</option>
+					<!-- Options for different departure locations -->
 					<option value="Athens">Athens</option>
 					<option value="Thessaloniki">Thessaloniki</option>
 					<option value="Arta">Arta</option>
@@ -37,17 +42,22 @@
 				</select>
 			</fieldset>     
 			<fieldset>
+				<!-- Label for the "to" select input -->
 				<label for="to-city">To:</label>
 				<select required name='to' id="to">
+					<!-- Default option with no value, serving as a placeholder -->
 					<option value="">Select a location...</option>
 				</select>
 			</fieldset>
 			<fieldset>
+				<!-- Label for the "date" select input -->
 				<label for="date">Date:</label>
 				<select  name="date" id="date" >
+					<!-- Default option with no value, serving as a placeholder -->
 					<option value="">Select a date...</option>
 				</select>
 			</fieldset>
+			<!--Customer inserts hir personal information to book the ticket (first name, last name and email) -->
 			<div class="p-data">
 			<fieldset>
 				<label for="fname">First name:</label><br>
@@ -62,11 +72,15 @@
 				<input type="text" id="email" name="email" value=""><br>
 			</fieldset>
 			</div>
+			<!-- Submit button for submitting the form to book the ticket-->
 			<fieldset>
 				<button type="submit" id="submit-btn" class="btn">Book</button>
 			</fieldset>
 		</form>
 	</div>
+	<!--This script dynamically updates the dropdown menu "to "based on the user's selection in the dropdown menu "from". 
+		When the "from" dropdown changes, an AJAX request fetches cities that can be reached from the selected city. 
+		The script then updates the "to" dropdown with the retrieved cities, allowing the user to select a destination easily.-->
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
       	$(function() {
@@ -82,6 +96,9 @@
         	});
       	});
     </script>
+	<!--This script updates the dropdown menu of dates based on the selected cities. 
+		When the "to" dropdown changes, an AJAX request fetches dates based on the selected cities.
+		The script then updates the "date" dropdown with the retrieved dates, allowing the user to select a specific date easily.-->
 	<script>
 		$(function() {
 		  $('#to').change(function() {

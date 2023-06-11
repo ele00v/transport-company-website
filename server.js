@@ -35,15 +35,15 @@ app.set('view engine', 'ejs');
 app.get('/', (req, res) => {
   res.render('home');
 });
-
+// Define the about route
 app.get('/about', (req, res) => {
   res.render('about');
 });
-
+// Define the book route
 app.get('/book', (req, res) => {
   res.render('book');
 });
-
+// Define the home route
 app.get('/home', (req, res) => {
   res.render('home');
 });
@@ -51,7 +51,7 @@ app.get('/home', (req, res) => {
 app.get('/schedule', (req, res) => {
   const from = req.query.from;
   const to = req.query.to;
-  // Retrieve data from the database based on the user's input
+  // Retrieve data from the database based on the user's input (from and to cities)
   connection.query(`SELECT FROM_CITY, TO_CITY, DATE_T, SEATS_AVAIL, PRICE FROM schedule WHERE FROM_CITY = ? AND TO_CITY = ?`, [from, to], (error, results) => {
     if (error) {
       console.error(error);
@@ -63,7 +63,9 @@ app.get('/schedule', (req, res) => {
 });
 
 app.get('/get_to_cities', (req, res) => {
+  //from city choosen in the dropdown list
   const fromCity = req.query.from;
+  //SQL query to retrieve distinct to_city from the 'schedule' table where 'from_city' matches the provided value
   const sql = 'SELECT DISTINCT to_city FROM schedule WHERE from_city = ?';
   connection.query(sql, [fromCity], (err, results) => {
     if (err) {
@@ -76,8 +78,11 @@ app.get('/get_to_cities', (req, res) => {
 });
 
 app.get('/get_dates', (req, res) => {
+  //from city choosen in the dropdown list
   const fromCity = req.query.from;
+  //to city choosen in the dropdown list
   const toCity = req.query.to;
+  //SQL query to retrieve dates from the 'schedule' table where 'from_city' and 'to_city' matches the provided value
   const sql = 'SELECT DATE_T FROM schedule WHERE from_city = ? AND to_city = ?';
 
   connection.query(sql, [fromCity, toCity], (err, results) => {
